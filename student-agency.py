@@ -168,7 +168,7 @@ class StudentAgency(object):
             credit=self.credit
         )
         request = self.session.post(url)
-        bs = BeautifulSoup(request.text)
+        bs = BeautifulSoup(request.text, "html.parser")
         linesRaw = bs.find("div", "detail-tabs").find_all("div", "select-line")
         busLines = []
 
